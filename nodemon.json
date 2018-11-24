@@ -1,0 +1,6 @@
+{
+    "env":{
+        "Mongo_Atlas_PW": "test123",
+        "Mongo_Atlas_User": "Dzamba"
+    }
+}
