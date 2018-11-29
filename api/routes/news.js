@@ -36,6 +36,19 @@ router.get('/', (req, res, next) => {
 });
 
 
+router.get('/count', (req,res,next) => {
+    News.find({}, function(err, news) {
+        var i = 1;
+
+        news.forEach(function(news){
+            i++;
+        });
+
+        res.send(i);
+    });
+});
+
+
 router.post('/', (req, res, next) => {
     const news = new News({
         _id: new mongoose.Types.ObjectId,
