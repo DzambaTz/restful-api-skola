@@ -18,7 +18,7 @@ router.get('/all', function(req, res) {
 
 
 router.get('/', (req, res, next) => {
-    var a = News.find({}, {_id:1}).map(function(news){ return news._id; });
+    var a = db.c.find({}, {_id:1}).map(function(news){ return news._id; });
     res.send(a);
    /* res.status(200).json({
         message: 'Handling GET requests to /news'
