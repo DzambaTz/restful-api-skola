@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 
 const News = require('../models/news');
 
-var i = 1;
 
 router.get('/all', function(req, res) {
     News.find({}, function(err, news) {
@@ -22,14 +21,14 @@ router.get('/all', function(req, res) {
 router.get('/', (req, res, next) => {
     News.find({}, function(err, news) {
         var idsArr = [];
-        i = 1;
+        i = 0;
     
         news.forEach(function(news) {
           idsArr[i] = news._id;
           i += 1;
         });
         
-        res.send(idsArr,i);  
+        res.send(idsArr);  
       });
    /* res.status(200).json({
         message: 'Handling GET requests to /news'
@@ -37,9 +36,6 @@ router.get('/', (req, res, next) => {
     */
 });
 
-router.get('/count', (req,res,next) => {
-    res.send(i);
-});
 
 router.post('/', (req, res, next) => {
     const news = new News({
