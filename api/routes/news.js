@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 
 const News = require('../models/news');
 
+var i = 1;
+
 router.get('/all', function(req, res) {
     News.find({}, function(err, news) {
       var newsMap = {};
@@ -20,7 +22,7 @@ router.get('/all', function(req, res) {
 router.get('/', (req, res, next) => {
     News.find({}, function(err, news) {
         var idsArr = [];
-        var i = 0;
+        i = 1;
     
         news.forEach(function(news) {
           idsArr[i] = news._id;
@@ -35,19 +37,9 @@ router.get('/', (req, res, next) => {
     */
 });
 
-
 router.get('/count', (req,res,next) => {
-    News.find({}, function(err, news) {
-        var i = 1;
-
-        news.forEach(function(news){
-            i++;
-        });
-
-        res.send(i);
-    });
+    res.send(i);
 });
-
 
 router.post('/', (req, res, next) => {
     const news = new News({
