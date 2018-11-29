@@ -11,18 +11,21 @@ router.get('/all', function(req, res) {
       news.forEach(function(news) {
         newsMap[news._id] = news;
       });
-  
+      
       res.send(newsMap);  
     });
   });
 
-/*
+
 router.get('/', (req, res, next) => {
-    res.status(200).json({
+    var a = News.find({}, {_id:1}).map(function(news){ return news._id; });
+    res.send(a);
+   /* res.status(200).json({
         message: 'Handling GET requests to /news'
     });
+    */
 });
-*/
+
 
 router.post('/', (req, res, next) => {
     const news = new News({
