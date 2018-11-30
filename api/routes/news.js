@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
         var i = 0;
     
         news.forEach(function(news) {
-          idsArr += news._id;
+          idsArr[i] = news._id;
           i += 1;
         });
         
