@@ -30,10 +30,9 @@ router.get('/', (req, res, next) => {
         
         res.send(idsArr);  
       });
-   /* res.status(200).json({
+    res.status(200).json({
         message: 'Handling GET requests to /news'
     });
-    */
 });
 
 
