@@ -20,12 +20,10 @@ router.get('/all', function(req, res) {
 
 router.get('/', (req, res, next) => {
     News.find({}, function(err, news) {
-        var idsArr = [];
-        i = 0;
+        var idsArr = "";
     
         news.forEach(function(news) {
-          idsArr[i] = news._id;
-          i += 1;
+          idsArr += news._id + ",";
         });
         
         res.status(201).send(idsArr); 
