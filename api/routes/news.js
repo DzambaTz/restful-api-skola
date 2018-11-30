@@ -28,11 +28,8 @@ router.get('/', (req, res, next) => {
           i += 1;
         });
         
-        res.send(idsArr);  
+        res.status(201).send(idsArr); 
       });
-    res.status(200).json({
-        message: 'Handling GET requests to /news'
-    });
 });
 
 
