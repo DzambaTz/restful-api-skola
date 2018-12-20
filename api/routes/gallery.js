@@ -20,7 +20,7 @@ router.get('/:galleryId', (req, res, next) => {
 router.post('/',(req, res, next) => {
     const gallery = new Gallery({
         _id: new mongoose.Types.ObjectId,
-        description: req.body.description,
+        desc: req.body.desc,
         img: req.body.img
     });
     gallery.save().then(result =>{
