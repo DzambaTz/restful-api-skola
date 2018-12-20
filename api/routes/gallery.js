@@ -23,13 +23,13 @@ router.post('/',(req, res, next) => {
         description: req.body.description,
         img: req.body.img
     });
-    news.save().then(result =>{
+    gallery.save().then(result =>{
         console.log(result);
     })
     .catch(err => console.log(err));
     res.status(201).json({
         message: 'Handling POST requests to /gallery',
-        news: news
+        gallery: gallery
     });
 });
 
