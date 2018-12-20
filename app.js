@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./api/routes/users')
 const newsRoutes = require('./api/routes/news')
 const loginRoutes = require('./api/routes/login')
+const galleryRoutes = require('./api/routes/gallery')
 
 mongoose.connect('mongodb://' + process.env.Mongo_Atlas_User + ':' + process.env.Mongo_Atlas_PW + '@etstuzla-shard-00-00-t3iti.mongodb.net:27017,etstuzla-shard-00-01-t3iti.mongodb.net:27017,etstuzla-shard-00-02-t3iti.mongodb.net:27017/test?ssl=true&replicaSet=etstuzla-shard-0&authSource=admin&retryWrites=true', { useNewUrlParser: true});
 
@@ -26,6 +27,7 @@ app.use((req, res, next) =>{
 app.use('/users', userRoutes);
 app.use('/login', loginRoutes);
 app.use('/news', newsRoutes);
+app.use('/gallery', galleryRoutes);
 
 app.use((req, res, next) =>{
     const error = new Error();
