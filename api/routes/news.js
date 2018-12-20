@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const multer = require('multer');
+const upload = multer({dest: 'uploads/'});
 
 const News = require('../models/news');
 
@@ -13,7 +15,7 @@ router.get('/all', function(req, res) {
         newsMap[news._id] = news;
       });
       
-      res.send(newsMap);  
+      res.send(newsMap);;
     });
   });
 
@@ -33,7 +35,8 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.post('/', (req, res, next) => {
+router.post('/', upload.single('newsImage'),(req, res, next) => {
+    console.log(req.file);
     const news = new News({
         _id: new mongoose.Types.ObjectId,
         title: req.body.title,
