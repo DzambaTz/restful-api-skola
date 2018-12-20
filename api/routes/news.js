@@ -15,7 +15,7 @@ router.get('/all', function(req, res) {
         newsMap[news._id] = news;
       });
       
-      res.send(newsMap);;
+      res.send(newsMap);
     });
   });
 
