@@ -18,7 +18,7 @@ router.get('/:galleryId', (req, res, next) => {
 });
 
 router.post('/',(req, res, next) => {
-    const gallery = new Gallery({
+    /*const gallery = new Gallery({
         _id: new mongoose.Types.ObjectId,
         desc: req.body.desc,
         img: req.body.img
@@ -26,10 +26,10 @@ router.post('/',(req, res, next) => {
     gallery.save().then(result =>{
         console.log(result);
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err));*/
     res.status(201).json({
         message: 'Handling POST requests to /gallery',
-        gallery: gallery
+        /*gallery: gallery*/
     });
 });
 
