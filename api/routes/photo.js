@@ -15,8 +15,8 @@ router.post('/',(req, res, next) => {
     })
     .catch(err => console.log(err));
     res.status(201).json({
-        message: 'Handling POST requests to /gallery',
-        gallery: gallery
+        message: 'Handling POST requests to /photo',
+        photo: photo
     });
 });
 
