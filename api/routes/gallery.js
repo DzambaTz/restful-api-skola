@@ -17,6 +17,20 @@ router.get('/:galleryId', (req, res, next) => {
     });
 });
 
-
+router.post('/',(req, res, next) => {
+    const gallery = new Gallery({
+        _id: new mongoose.Types.ObjectId,
+        description: req.body.description,
+        img: req.body.img
+    });
+    news.save().then(result =>{
+        console.log(result);
+    })
+    .catch(err => console.log(err));
+    res.status(201).json({
+        message: 'Handling POST requests to /gallery',
+        news: news
+    });
+});
 
 module.exports = router;

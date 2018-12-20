@@ -33,7 +33,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.post('/', upload.single('newsImage'),(req, res, next) => {
+router.post('/',(req, res, next) => {
     const news = new News({
         _id: new mongoose.Types.ObjectId,
         title: req.body.title,
